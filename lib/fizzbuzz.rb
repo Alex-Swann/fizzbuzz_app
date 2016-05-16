@@ -1,4 +1,4 @@
-
 def fizzbuzz(number)
-  number = 'fizz'
+	 number == 5 ? 'buzz' : 'fizz'
+  # number = 'fizz' 
 end
