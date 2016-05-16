@@ -14,8 +14,8 @@ describe 'fizzbuzz' do
 		expect(fizzbuzz(2)).to eq '2'
 	end
 
-	it "makes you solve the whole test because i'm an arse" do
-		a = [*1..10000]
+	it "3 and 5 should equal fizz and buzz" do
+		a = [*1..100]
 		a.each do |n|
 			if n % 3 == 0 && n % 15 != 0
 				expect(fizzbuzz(n)).to eq 'fizz'
@@ -32,10 +32,34 @@ describe 'fizzbuzz' do
 	end
 
 	it "tests for fizzbuzz" do
-		mod5 = [*1..10000].select {|i | i % 15 == 0 }
+		mod5 = [*1..100].select {|i | i % 15 == 0 }
 		mod5.each do |n|
 			expect(fizzbuzz(n)).to eq 'fizzbuzz'
 		end
 	end
+
+  it 'non-integer characters fail' do
+    @n = '!@#$%^&*()[]{}"\'|<>,./?~™£¢∞§¡¶•ªº≠=⁄€‹›ﬁﬂ‡°·‚±ÚÆ”’¯˘¿;: '.split('')
+    @n << [*"a".."z"] << [*"A".."Z"]
+    @n.flatten.each do |x|
+      expect(fizzbuzz(x)).to eq "Fail! Not an integer"
+    end
+    random_words = ['14t','?123','2 34','_+34jif','jhfhfl','','  ','12three','EV%4',]
+    random_words.each do |x|
+      if x.chars.any? {|c| @n.include? c}
+        expect(fizzbuzz(x)).to eq "Fail! Not an integer"
+      end
+    end
+  end
+
+  it 'has a range between 1 & 100' do
+    b = [*-10000..0]
+    a = [* 101..10000]
+    b << a
+    b.flatten.each do |i|
+      expect(fizzbuzz(i)).to eq "Integer outside of range. Try again!"
+    end
+  end
+
 end
 

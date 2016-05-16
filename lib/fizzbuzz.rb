@@ -10,7 +10,7 @@ def fizzbuzz(number)
 	else
 		return number.to_s
 	end
-		
+
 
 	# return 'fizzbuzz' if number % 5 == 0 && number % 3 == 0 && number % 15 == 0
 	# return 'fizz' if number % 3 == 0
@@ -18,3 +18,4 @@ def fizzbuzz(number)
 	# return number.to_s if number != 3 && number != 5
 
 end
+
