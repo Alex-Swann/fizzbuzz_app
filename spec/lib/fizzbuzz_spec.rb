@@ -14,15 +14,23 @@ describe 'fizzbuzz' do
 		expect(fizzbuzz(2)).to eq '2'
 	end
 
-	it 'returns all numbers in string format when not 3,5,15' do
+	it "makes you solve the whole test because i'm an arse" do
 		a = [*1..10000]
-		r = a.select{|i| i % 3 != 0 && i % 5 != 0 }
-		r.each do |n|
-			expect(fizzbuzz(n)).to eq n.to_s
+		a.each do |n|
+      if n % 3 == 0
+        expect(fizzbuzz(n)).to eq 'fizz'
+      elsif n % 5 == 0 && n % 15 != 0
+        expect(fizzbuzz(n)).to eq 'fizz'
+      else
+        expect(fizzbuzz(n)).to eq n.to_s unless n % 15 == 0
+      end
 		end
 	end
+
 	it 'returns fizzbuzz when 15 is passed' do
 		expect(fizzbuzz(15)).to eq 'fizzbuzz'
 	end
+
+
 end
 
