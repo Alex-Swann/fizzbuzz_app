@@ -1,0 +1,12 @@
+!!!
+%html
+	%head
+		%title Fizzy Buzzy
+	%body{:style => "width: 50%; margin: auto; text-align: center;"}
+		%h1 Fizzy Buzzy
+		%p Enter a number to see if it fizzes or buzzes or maybe both?
+		
+		%form{ :action => "/fizzbuzz", :method => "post"}
+			%label{:for => "number"} number:
+			%input{:type => "number", :name => "number", :max => "100", :min => "0"}
+			%input{:type => "submit", :value => "Send", :class => "button"}
