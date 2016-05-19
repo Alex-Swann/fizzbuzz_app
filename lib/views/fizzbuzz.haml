@@ -1,11 +1,27 @@
 !!!
 %html
 	%head
+		%link{:href => "/style.css", :rel => "stylesheet", :type => "text/css"}/
+		%script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"}
 		%title Fizzy Buzzy
-	%body{:style => "width: 50%; margin: auto; text-align: center;"}
+	%body
 		%h1 Fizzy Buzzy
 		%p 
-			Your number ---->
-			%strong #{locals[:fzbz]}
+			Your number.....
+			#buzzing
+			- locals[:fzbz].each_with_index do |fb, i|
+				:javascript
+					$('#buzzing').append('<span style="display: none;" id="index-#{i}">#{fb}</span>');
+					$('#index-#{i}').fadeIn(2000, function(){
+						$('#index-#{i}').append('<br>')
+					});
+
+					
 		%p
 			%a{href: '/'} Go Back
+
+/ var delay=1000; //1 second
+
+/ setTimeout(function() {
+/   //your code to be executed after 1 second
+/ }, delay);

@@ -10,8 +10,15 @@ get '/' do
 end
 
 post '/fizzbuzz' do
-	haml :fizzbuzz, :locals => {:fzbz => fizzbuzz(params[:number].to_i)}
+	array = []
+	1.upto(params[:number].to_i) do |num|
+		array <<  fizzbuzz(num)
+	end
+
+	haml :fizzbuzz, :locals => {:fzbz => array}
 end
 
 
-# , :locals => {:some_object => fizzbuzz(3)}
+get '/style.css' do
+	sass :styles, :style => :expanded
+end
