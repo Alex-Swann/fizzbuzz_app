@@ -4,6 +4,7 @@ GEM
     haml (4.0.7)
       tilt
     rack (1.6.4)
+    sass (3.4.15)
     sinatra (1.1.0)
       rack (~> 1.1)
       tilt (~> 1.1)
@@ -14,6 +15,7 @@ PLATFORMS
 
 DEPENDENCIES
   haml
+  sass
   sinatra (= 1.1.0)
 
 BUNDLED WITH
