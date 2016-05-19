@@ -3,7 +3,7 @@ require 'sinatra'
 require 'haml'
 
 require_relative './fizzbuzz'
-
+set :public_folder, './public'
 
 get '/' do
 	haml :index
